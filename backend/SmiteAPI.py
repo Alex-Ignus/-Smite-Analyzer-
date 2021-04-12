@@ -128,7 +128,7 @@ def get_gods():
             #matchDB.document(str(i['Match'])).collection('players').document(str(i['playerId'])).set(i)
             #playerDB.document(str(i['playerId'])).collection('match').document(str(i['Match'])).set(i)
             #get_match(str(i['Match']))
-
+            
 
 if('session' not in locals()):
     session = session_setup(devId, current_time, key)

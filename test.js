@@ -9,95 +9,78 @@ var g = svg.append("g")
    
 const abilities = ['Ability_1', 'Ability_2','Ability_3','Ability_4','Ability_5']
 const godIcons = new Map();
-var data = {}
+var dbData = {}
+const match_types = ['conquest','joust','clash']
+var size = 0;
 
+function addToMap(i, objEle, DataCount){ 
+        var role = objEle;
+        if(DataCount.has(role)!= true){ 
+            console.log('objEle : ' + role );
+            DataCount.set(role, 0);
+        }
+        
+        c =  parseInt(DataCount.get(role));
+        c += parseInt(dbData[i].GodData.match_count);
+      
+        if(isNaN(c)==false){ 
+            DataCount.set(role,  c);
+        }
+        }
+      
 
-smiteDB.collection('god').get().then( res =>{
+smiteDB.collection('test_roleCount').get().then( res =>{
 	console.log('get from DB')
     console.log(res);
+    
 	for (i=0; i<res.docs.length;i++){
 		console.log('loop')
-		data[i] = {
-			Ability1:res.docs[i]._delegate._document.data.partialValue.mapValue.fields.Ability1.stringValue
+        size ++;
+        console.log(res.docs[i].id);
+        console.log(res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.mage.integerValue);
+        console.log(res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.hunter.integerValue);
+        console.log(res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.assassin.integerValue);
+        console.log(res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.warrior.integerValue);
+        console.log(res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.guardian.integerValue);
+
+		dbData[i] = {
+            matchData:{ 
+                MatchType:res.docs[i].id,
+                mage:res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.mage.integerValue,
+                hunter:res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.hunter.integerValue,
+                assassin:res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.assassin.integerValue,
+                guardian:res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.guardian.integerValue,
+                warrior:res.docs[i]._delegate._document.data.partialValue.mapValue.fields.roles.mapValue.fields.warrior.integerValue
+            },
 		};
 	}
-    console.log(data);
 })
+smiteDB.collection('test_roleCount').get().then( res =>{
 
-//-----bscaleable------//
-var dataset = {things: [40, 60],};
-var width = 315;
-var height = 315;
-var radius = Math.min(width, height) / 2;
-var color = d3.scale.category20();
-var pie = d3.layout.pie().sort(null);
-var arc = d3.svg.arc()
-    .innerRadius(radius - 85)
-    .outerRadius(radius - 50);
-var svg = d3.select("#donut")
+    var data = []; 
+    res.docs.forEach(doc => { 
+        data.push(doc.data())
+    })
+    console.log(data)
+    // set the dimensions and margins of the graph
+    var margin = {top: 30, right: 30, bottom: 30, left: 30},
+    width = 450 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
     .append("svg")
-    .attr("width", width)
-    .attr("height", 264)
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", "translate(" 
-        + width / 2.090 + "," 
-        + height / 2.38  + ")");
-var path = svg.selectAll("path")
-    .data(pie(dataset.things))
-    .enter().append("path")
-    .attr("fill", function(d, i) { return getColors(i); })
-    .attr("d", arc);
-
-function getColors (i) {
-    var colorArray = ['#E5E5E5','#5CB85C'];
-    return colorArray[i];
-}
-
-svg.append("svg:text")
-    .attr("dy", ".35em")
-    .attr("text-anchor", "middle")
-    .attr("style","font-family:Ubuntu")
-    .attr("font-size","40")
-    .attr("fill","#5CB85C")
-    .text("60%");
-
-// smiteDB.collection('god').get().then(res => { 
-
-//     var data = [];
-//     //console.log(res);
-//     res.docs.forEach( doc=> { 
-//         data.push(doc.data());
-//     })
-//    // console.log(data);
-//     var icons = new Map();
-//     y = 0;
-//     x = 0;
-//     data.forEach(obj =>{
-//         //console.log("Name: " + obj['Name'] + "\nRole: " + obj['Roles'] +"\nAbilities: ");
-//         if(x > 1000){ 
-//             x = 0;
-//             y += 50;
-//         }
-        
-//         abilities.forEach(str => { 
-//             //console.log("\t" + obj[str]['Summary'] + " : " + obj[str]['URL']);
-//             var myimage = svg.append('image')
-//             .attr('xlink:href',  obj[str]['URL'])
-//             .attr('width', 50)
-//             .attr('height', 50)
-//             .attr('x', x+=50)
-//             .attr('y', y);
-//             icons.set(obj[str]['Summary'], obj[str]['URL'] );
-//         })
-       
-//         godIcons.set(obj['Name'],icons ); 
-//         icons = new Map();
-      
-      
-//     } )
-//     console.log(godIcons);
-
-   
-    
- 
-// });
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+    // Build X scales and axis:
+    var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(match_types)
+    .padding(0.01);
+    svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+})

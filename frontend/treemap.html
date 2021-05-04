@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Alex's Sequential Color Scale Bar graph in D3</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="barchart.html">Bar graph: Visualzation</a></li>
+            <li><a href="treemap.html">Bubble Plot: Visualzation</a></li>
+          </ul>
+          <script src="http://colorbrewer2.org/export/colorbrewer.js"></script>
+
+          <!-- The core Firebase JS SDK is always required and must be listed first -->
+          <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+         
+          <!-- TODO: Add SDKs for Firebase products that you want to use
+              https://firebase.google.com/docs/web/setup#available-libraries -->
+          <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+      
+      
+          <script>
+          // Your web app's Firebase configuration
+          // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+          var firebaseConfig = {
+              apiKey: "AIzaSyCQr6mE-PZzYiDwhNgCDwuDVGdDvPQ7P6M",
+              authDomain: "puppyplayground.firebaseapp.com",
+              projectId: "puppyplayground",
+              storageBucket: "puppyplayground.appspot.com",
+              messagingSenderId: "201968710980",
+              appId: "1:201968710980:web:c114c4912ef98e02739311",
+              measurementId: "G-SFMQ6K9778"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+          const smiteDB = firebase.firestore();
+          
+          smiteDB.settings([{timestampsInSnapshots: true}]);
+          </script>
+          <svg width="1500" height="750"></svg>
+          <script src="https://d3js.org/d3.v4.min.js"></script>
+          <!-- Create a div where the graph will take place -->
+            <div id="my_dataviz"></div>
+            <script src="treemap.js"></script>
+   
+    <div style="width:100%;">
+        <div id="donut"></div>  
+     </div>
+</head>
+
+<body>
+  
+    <!-- <h2 class="text text-1">White Hat Visualization Descriptions &nbsp;</h2>
+    <p class="text text-2">Why is this visualization Good? 
+        <br>The title is not biased for or against any one country and instead considers the top three countries with the highest emissions and makes a compassion  to the global average (which includes the top three).
+        <br>
+      <br>The Y access has a full-scale which enables the reader to gain more meaningful insights into the data and the trend of the line.
+      &nbsp;&nbsp;<br>
+      <br>Each line has its own color distinguishing them for one another and no longer associating and grouping them together.
+      &nbsp;<br>
+      <br>Each line has its own color distinguishing them for one another and no longer associating and grouping them together.      &nbsp;<br>
+    </p> -->
+<main>
+</main>
+</body>
+
+</html>

@@ -139,7 +139,7 @@ smiteDB.collection('test_Bubblechart').get().then( res =>{
               {
                 "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue),
                 "name": "Assassin",
-                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.kcount.integerValue)
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue)
               },
               {
               	"Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue),

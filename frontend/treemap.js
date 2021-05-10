@@ -12,82 +12,113 @@ smiteDB.collection('test_Bubblechart').get().then( res =>{
     console.log(res)
     var data = {
         "name": "Matchs",
+        "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.kcount.integerValue),
         "children": [
           {
             "matchType": "Arena",
-            "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.matchCount.integerValue),
+            "matchCount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.matchCount.integerValue),
+            "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.kcount.integerValue),
             "children": [
               {
                 "name": "Assassin",
-                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue)
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.kcount.integerValue)
               },
               {
                 "name": "Guardian",
-                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue)
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.kcount.integerValue)
+
               },
               {
                 "name": "Hunter",
-                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.count.integerValue)
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.kcount.integerValue)
+
               },
               {
                 "name": "Mage",
-                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.count.integerValue)
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.kcount.integerValue)
+
               },
               {
                 "name": "Warrior",
-                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.count.integerValue)
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Arena.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.kcount.integerValue)
+
               }
             ]
           },
           {
             "matchType": "Clash",
-            "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.matchCount.integerValue),
+            "matchCount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.matchCount.integerValue),
+            "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.kcount.integerValue),
             "children": [
-                {
-                  "name": "Assassin",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue)
-                },
-                {
-                  "name": "Guardian",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue)
-                },
-                {
-                  "name": "Hunter",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.count.integerValue)
-                },
-                {
-                  "name": "Mage",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.count.integerValue)
-                },
-                {
-                  "name": "Warrior",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.count.integerValue)
-                }
-              ]
+              {
+                "name": "Assassin",
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.kcount.integerValue)
+              },
+              {
+                "name": "Guardian",
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.kcount.integerValue)
+
+              },
+              {
+                "name": "Hunter",
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.kcount.integerValue)
+
+              },
+              {
+                "name": "Mage",
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.kcount.integerValue)
+
+              },
+              {
+                "name": "Warrior",
+                "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.count.integerValue),
+                "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Clash.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.kcount.integerValue)
+
+              }
+            ]
           },
           {
             "matchType": "Conquest",
-            "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.matchCount.integerValue),
+            "matchCount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.matchCount.integerValue),
+            "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.kcount.integerValue),
             "children": [
                 {
                   "name": "Assassin",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue)
+                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.count.integerValue),
+                  "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Assassin.mapValue.fields.kcount.integerValue)
                 },
                 {
                   "name": "Guardian",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue)
+                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.count.integerValue),
+                  "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Guardian.mapValue.fields.kcount.integerValue)
+
                 },
                 {
                   "name": "Hunter",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.count.integerValue)
+                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.count.integerValue),
+                  "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Hunter.mapValue.fields.kcount.integerValue)
+
                 },
                 {
                   "name": "Mage",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.count.integerValue)
+                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.count.integerValue),
+                  "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Mage.mapValue.fields.kcount.integerValue)
+
                 },
                 {
                   "name": "Warrior",
-                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.count.integerValue)
+                  "value": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.count.integerValue),
+                  "Kcount": parseInt(res.docs[0]._delegate._document.data.partialValue.mapValue.fields.matchTypes.mapValue.fields.Conquest.mapValue.fields.Roles.mapValue.fields.Warrior.mapValue.fields.kcount.integerValue)
+
                 }
               ]
           }
@@ -120,6 +151,15 @@ smiteDB.collection('test_Bubblechart').get().then( res =>{
     .append('g')
     .attr('transform', function(d) {return 'translate(' + [d.x0, d.y0] + ')'})
   
+  var div = d3.select("body").append("div") 
+    .attr("class", "tooltip")       
+    .style("opacity", 0);
+  svg.append("text")
+    .attr("y", 35)
+    .attr("x",width/2)
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("Roles Played Most often in (Arena, Clash, Conquest) Smite ");
   nodes
     .append('rect')
     .attr('width', function(d) { return d.x1 - d.x0; })
@@ -127,7 +167,18 @@ smiteDB.collection('test_Bubblechart').get().then( res =>{
     .attr("stroke", "white")
     .style("stroke-width", "2px")
     .style("fill",  d=>colorScale(d.data.name))
-    .style("opacity", "0.3");
+    .style("opacity", "0.3")
+    .on("mouseover", function(d) {
+      div.transition().duration(200).style("opacity", .9);    
+      div .html( 'Player Kills:  ' + d.data.Kcount)
+          .style("left", (d3.event.pageX) + "px")   
+          .style("top", (d3.event.pageY) + "px");
+    })      
+    .on("mouseout", function(d) {
+      div.transition()
+         .duration(500)
+         .style("opacity", 0);
+    });
   
   nodes
     .append('text')

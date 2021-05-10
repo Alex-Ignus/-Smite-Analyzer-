@@ -1,18 +1,11 @@
-<!DOCTYPE html>
+
 <html lang="">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Alex's Sequential Color Scale Bar graph in D3</title>
+    <title> Landing Page</title>
     <link rel="stylesheet" href="navbar.css">
-    <style>/*https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_vertical_gray*/
-        body {
-            padding: 0;
-            margin: 0;
-        }
-
-    </style>
          <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="barchart.html">Horizontal Bar Chart Visualzation</a></li>

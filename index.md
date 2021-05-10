@@ -14,7 +14,7 @@
 
     </style>
          <ul>
-            <li><a href="index.md">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="barchart.html">Horizontal Bar Chart Visualzation</a></li>
             <li><a href="treemap.html">Treemap Visualzation</a></li>
             <li><a href="divbarchart.html">Diverging Bar Chart Visualzation</a></li>

@@ -9,7 +9,7 @@
     <li><a href="home.html">Home</a></li>
     <li><a href="barchart.html">Horizontal Bar Chart Visualzation</a></li>
     <li><a href="treemap.html">Treemap Visualzation</a></li>
-    <li><a href="divbarchart.html">Diverging Bar Chart Visualzation</a></li>
+    <li><a href="divbarchart.html">Damage Stats of the Most Played God's in Smite</a></li>
   </ul>
   <style> 
    
@@ -81,7 +81,7 @@
     
   </p>
   <div id="chart3">
-  <svg class="container" viewBox="0 0 960 500" preserveAspectRatio="xMinYMin slice" width="95%" height="95%" style="width: 100%; overflow: hidden;"><svg width="960" height="500"></svg></svg>
+  <svg class="container" viewBox="0 0 960 500" preserveAspectRatio="xMinYMin slice" width="75%" height="75%" style="width: 75%;"><svg width="960" height="500"></svg></svg>
   </div>
   <script type="text/javascript">
 
@@ -121,17 +121,11 @@ var svg = d3.select("body svg svg")
         
 
         svg.append("text")
-        .attr("y", height + (margin.bottom/2))
-        .attr("x",width/2)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .text("Net Damange (Damange Dealt - Damange Taken)");
-        svg.append("text")
         .attr("y", -40)
         .attr("x",width/2)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .text("Damage Stats of the Most Played God's in Smite");
+        .text("Net Damange (Damange Dealt - Damange Taken)");
 var cfg = {
   labelMargin: 5,
   xAxisMargin: 10,
@@ -157,7 +151,7 @@ var dataSort = ((error) => {
     .append("g")
     .attr("class", "x-axis")
     .attr("transform", "translate(0," + (height + cfg.xAxisMargin) + ")")
-    .call(d3.axisBottom(x).tickSizeOuter(0));
+    .call(d3.axisBottom(x).tickSizeOuter(5));
 
   var div = d3.select("body").append("div") 
     .attr("class", "tooltip")       

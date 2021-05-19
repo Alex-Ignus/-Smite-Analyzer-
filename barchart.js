@@ -58,7 +58,7 @@ smiteDB.collection('Pantheon_counter').get().then( res =>{
             return  d;
         }).ticks(10))
         .append("text")
-        .style("font", "14px times")
+        .style("font", "21px times")
         .attr("y", 0)
         .attr("dy", "0.71em")
         .attr("text-anchor", "end")

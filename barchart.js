@@ -74,7 +74,7 @@ smiteDB.collection('Pantheon_counter').get().then( res =>{
         .attr("transform", "translate(50," + 0 + ")")
         .on("mouseover", function(d) {    
             div.transition().duration(200).style("opacity", .9);    
-            div .html('Number of playable gods: ' +   d.totalGods +' | Most Played God: '+d.topGod+' - '+' Matches Played: ' +d.godCount )
+            div .html('Number of gods in ' + d.Pantheon +": " +   d.totalGods +' | Most Played God: '+d.topGod)
                 .style("left", (d3.event.pageX) + "px")   
                 .style("top", (d3.event.pageY - 28) + "px");})          
         .on("mouseout", function(d) {div.transition().duration(500).style("opacity", 0);})

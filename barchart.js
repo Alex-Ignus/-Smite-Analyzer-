@@ -1,4 +1,4 @@
-var svg = d3.select("svg"),
+var svg = d3.select("svg").attr("class", "graph-svg-component"), //https://stackoverflow.com/questions/20142951/how-to-set-the-background-color-of-a-d3-js-svg/20143158
     margin = 200,
     width = svg.attr("width") - margin,
     height = svg.attr("height") - margin

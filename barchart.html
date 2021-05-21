@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Horizontal Bar Chart </title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="siteText.css">
+    <link rel="stylesheet" href="vis.css">
+
 
     <style>
         body {
@@ -39,7 +42,7 @@
           <!-- TODO: Add SDKs for Firebase products that you want to use
               https://firebase.google.com/docs/web/setup#available-libraries -->
           <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
-          <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js" ></script>
       
       
           <script>
@@ -63,11 +66,15 @@
           </script>
           <svg width="1000" height="750"></svg>
           <script src="https://d3js.org/d3.v4.min.js"></script>
-          <script src="barchart.js"></script>
+          <div class="barchart" >
+            <script src="barchart.js" ></script>
+        </div>
 
 </head>
 
 <body>
+
+    <div class="barchartTextDiv">
     <p> General Overview </p>
     <p>The goal of this visualization is to introduce players to the idea of the 16 Pantheon's and how often you as a player may play against a certain Pantheon.
         <br>  By Hovering over any of the bars on the graph you'll gain further insights into each Pantheon the most played God the number of available gods that a player can choose from for that given Pantheon and how many matches most played goddess played
@@ -88,6 +95,7 @@
     <p> The goal of this project was to visualize real-time data from the massive online battle arena (MoBa) in meaningful ways 
         <br>that would help new and veteran players gain insight into smite that is not available in-game or elsewhere.  
     </p>
+    <div>
 <main>
 </main>
 </body>

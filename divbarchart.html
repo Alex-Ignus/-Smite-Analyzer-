@@ -4,6 +4,10 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="vis.css">
+  <link rel="stylesheet" href="siteText.css">
+
+
 
   <ul>
     <li><a href="home.html">Home</a></li>
@@ -62,6 +66,7 @@
 </head>
 
 <body>
+  <div class="textDiv">
   <p> General Overview</p>
   <p>The goal of this chart is to show the damage potential of each God as well as the influence their role may have on their potential for damage whether that's damage dealt or Taken.  
     <br>By mousing Over the Bar label you gained further insight into the individual gods' total damage dealt and total damage received as well as what role they are assigned.
@@ -81,11 +86,11 @@
 
     
   </p>
+  </div>
   <div id="chart3">
-  <svg class="container" viewBox="0 0 960 500" preserveAspectRatio="xMinYMin slice" width="75%" height="75%" style="width: 75%;"><svg width="960" height="500"></svg></svg>
+  <svg class="graph-svg-component" viewBox="0 0 960 300"  width="75%" height="75%" style="width: 75%;"><svg width="960" height="500"></svg></svg>
   </div>
   <script type="text/javascript">
-
 var data = {'all':[]};
 smiteDB.collection('damage_test').orderBy('damage_total').get().then(res=>{
   var main = res._delegate.docs;

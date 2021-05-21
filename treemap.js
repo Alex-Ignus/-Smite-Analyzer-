@@ -1,4 +1,4 @@
-var svg = d3.select("svg"),
+var svg = d3.select("svg").attr("class", "graph-svg-component"),
     margin = 200,
     width = svg.attr("width") - margin,
     height = svg.attr("height") - margin

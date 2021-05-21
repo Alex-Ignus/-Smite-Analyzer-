@@ -1,0 +1,20 @@
+.textDiv {
+    margin: auto;
+    width: 50%;
+    border: 5px outset rgba(247, 247, 247, 0.432);
+    background-color: rgb(66, 67, 66);
+    color: white;
+    text-align: center;
+  }
+  .barchartTextDiv {
+    margin: auto;
+    width: 50%;
+    border: 5px outset rgba(247, 247, 247, 0.432);
+    background-color: rgb(66, 67, 66);
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 0%;
+  
+  }
+  

@@ -1,0 +1,10 @@
+Body {
+    opacity: 1;
+    background-image:  url("./images/folk-pattern-black.png");
+    background-repeat: repeat;
+    background-color: rgb(66, 67, 66);
+    
+  }
+  .graph-svg-component {
+    background-color: AliceBlue;
+}

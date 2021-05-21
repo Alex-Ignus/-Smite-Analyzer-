@@ -1,4 +1,4 @@
-var svg = d3.select("svg"),
+var svg = d3.select("svg").attr("class", "graph-svg-component"), //https://stackoverflow.com/questions/20142951/how-to-set-the-background-color-of-a-d3-js-svg/20143158
     margin = 200,
     width = svg.attr("width") - margin,
     height = svg.attr("height") - margin
@@ -58,6 +58,7 @@ smiteDB.collection('Pantheon_counter').get().then( res =>{
             return  d;
         }).ticks(10))
         .append("text")
+        .style("font", "21px times")
         .attr("y", 0)
         .attr("dy", "0.71em")
         .attr("text-anchor", "end")
@@ -73,7 +74,7 @@ smiteDB.collection('Pantheon_counter').get().then( res =>{
         .attr("transform", "translate(50," + 0 + ")")
         .on("mouseover", function(d) {    
             div.transition().duration(200).style("opacity", .9);    
-            div .html('Number of playable gods: ' +   d.totalGods +' | Most Played God: '+d.topGod+' - '+' Matches Played: ' +d.godCount )
+            div .html('Number of gods in ' + d.Pantheon +": " +   d.totalGods +' | Most Played God: '+d.topGod)
                 .style("left", (d3.event.pageX) + "px")   
                 .style("top", (d3.event.pageY - 28) + "px");})          
         .on("mouseout", function(d) {div.transition().duration(500).style("opacity", 0);})
